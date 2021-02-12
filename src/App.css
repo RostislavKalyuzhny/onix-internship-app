@@ -1,295 +1,399 @@
 * {
-  box-sizing: border-box; 
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box; 
+	margin: 0;
+	padding: 0;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  color: #48555B;
-  font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+	color: #48555B;
+	font-size: 16px;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 ul, li {
-  display: block;
+	display: block;
 }
 
 h2 {
-  text-transform: uppercase;
+	text-transform: uppercase;
 }
 
 .container {
-  width: 940px;
-  margin: 0 auto;
+	width: 1170px;
+	margin: 0 auto;
 }
 
 .header {
-  height: 768px;
-  background: url(./img/header.jpg) no-repeat center top;
-  background-size: 100%;
+	background: url(./img/header.jpg) no-repeat center top;
+	padding-bottom: 768px;
+	background-size: 100%;
 }
 
 .navbar {
-  height: 65px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	height: 65px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .nav a {
-  color: #48555B;
+	color: #48555B;
 }
 
 .menu {
-  display: flex;
+	display: flex;
 }
 
 .menu li a {
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 1.1px;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 14px;
+	letter-spacing: 1.1px;
 }
 
 .menu li a:hover {
-  color: #00A4E5;
+	color: #00A4E5;
 }
 
 .menu li {
-  margin-left: 30px;
+	margin-left: 30px;
 }
 
 .about {
-  margin-top: 58px;
-  display: flex;
+	margin-top: 58px;
+	display: flex;
 }
 
 .about h2 {
-  position: relative;
-  font-size: 20px;
-  letter-spacing: 2.3px;
-  text-align: center;
-  color: #48555B;
+	position: relative;
+	font-size: 20px;
+	letter-spacing: 2.3px;
+	text-align: center;
+	color: #48555B;
 }
 
 .about h2::after {
-    margin: 0 auto;
-  left: 0;
-    right: 0;
-  width: 50px;
-  background: #00A4E5;
-  position: absolute;
-    content: '';
-    height: 2px;
-    bottom: -10px; 
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	width: 50px;
+	background: #00A4E5;
+	position: absolute;
+	content: '';
+	height: 2px;
+	bottom: -10px; 
 }
 
 .description {
-  display: flex;
+	display: flex;
 }
 
 .desc-text {
-  flex-basis: 50%;
-  padding-right: 57px;
-  padding-top: 90px;
+	flex-basis: 50%;
+	padding-right: 57px;
+	padding-top: 90px;
 }
 
 .desc-text span {
-  color: #00A4E5;
+	color: #00A4E5;
 }
 
 
 .desc-text h3 {
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 27px;
-  letter-spacing: 0.1875px;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 27px;
+	letter-spacing: 0.1875px;
 }
 
 .desc-text p {
-  margin: 30px 0 0 0;
+	margin: 30px 0 0 0;
 }
 
 .desc-photo {
-  display: flex;
-  flex-basis: 50%;
-  padding-top: 100px;
+	display: flex;
+	flex-basis: 50%;
+	padding-top: 100px;
 }
 
 .desc-photo img:hover {
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  transform: scale(1.16);
+	box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+	transform: scale(1.16);
 }
 
 .desc-photo img {
-  width: 140px;
-  height: 224px;
-  margin-left: 20px;
+	width: 140px;
+	height: 224px;
+	margin-left: 20px;
 }
 
 .services {
-  margin-top: 118px;
+	margin-top: 118px;
 }
 
 .serv-head {
-  display: flex;
-  margin-bottom: 75px;
+	display: flex;
+	margin-bottom: 75px;
 }
 
 .serv-head h2 {
-  display: inline-flex;
-  flex-grow: 1;
-  position: relative;
-  font-size: 20px;
-  letter-spacing: 2.3px;
-  text-align: center;
-  color: #48555B;
+	display: inline-flex;
+	flex-grow: 1;
+	position: relative;
+	font-size: 20px;
+	letter-spacing: 2.3px;
+	text-align: center;
+	color: #48555B;
 }
 
 .serv-head h2::after {
-  left: 0;
-    right: 0;
-  width: 50px;
-  background: #00A4E5;
-  position: absolute;
-    content: '';
-    height: 2px;
-    bottom: -1px; 
+	left: 0;
+	right: 0;
+	width: 50px;
+	background: #00A4E5;
+	position: absolute;
+	content: '';
+	height: 2px;
+	bottom: -1px; 
 }
 
 .serv-head p {
-  width: 405px;
-  font-size: 12px;
+	width: 405px;
+	font-size: 12px;
 }
 
 .serv-head a {
-  width: 150px;
-  height: 30px;
-  margin-left: 30px;
-  text-align: center;
-  padding-top: 4px;
-  background-color: #00A4E5;
-  color: #fff;
-  text-transform: uppercase;
+	width: 150px;
+	height: 30px;
+	margin-left: 30px;
+	text-align: center;
+	padding-top: 4px;
+	background-color: #00A4E5;
+	color: #fff;
+	text-transform: uppercase;
 }
 
 .serv-boxes {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .box {
-  width: 30%;
-  padding: 40px 20px;
+	width: 30%;
+	padding: 40px 20px;
 }
 
 .box:hover {
-  transform: scale(1.08);
-  border: 1px solid #00A4E5;
+	transform: scale(1.08);
+	border: 1px solid #00A4E5;
 }
 
 .box h3 {
-  text-transform: uppercase;
-  margin: 25px 0 15px 0;
+	text-transform: uppercase;
+	margin: 25px 0 15px 0;
 }
 
 .newslatter {
-  margin-top: 70px;
-  background-color: #171819;
-  padding: 30px 0 30px 0;
+	margin-top: 70px;
+	background-color: #171819;
+	padding: 30px 0 30px 0;
 }
 
 .newslatter-form {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .newslatter-form button {
-  width: 150px;
-  text-align: center;
-  padding-top: 4px;
-  background-color: #00A4E5;
-  color: #fff;
-  text-transform: uppercase;
+	width: 150px;
+	text-align: center;
+	padding-top: 4px;
+	background-color: #00A4E5;
+	color: #fff;
+	text-transform: uppercase;
 }
 
 .newslatter-form h2 {
-  font-weight: bold;
-  font-size: 22px;
-  margin-right: 70px;
-  color: #FFFFFF;
-  letter-spacing: 0.8px;
-  text-transform: none;
+	font-weight: bold;
+	font-size: 22px;
+	margin-right: 70px;
+	color: #FFFFFF;
+	letter-spacing: 0.8px;
+	text-transform: none;
 }
 
 .newslatter-form input {
-  width: 250px;
-  padding: 10px 15px;
+	width: 250px;
+	padding: 10px 15px;
 }
 
 .newslatter-form input:focus {
-  outline: none;
+	outline: none;
 }
 
 .footer {
-  background-color: #141A20;
-  color: #FFFFFF;
+	background-color: #141A20;
+	color: #FFFFFF;
 }
 
 .footer-info {
-  display: flex;
-  padding: 40px 0;
-  justify-content: space-between;
+	display: flex;
+	padding: 40px 0;
+	justify-content: space-between;
 }
 
 .footer-info h4 {
-  margin-bottom: 15px;
-  text-transform: uppercase;
+	margin-bottom: 15px;
+	text-transform: uppercase;
 }
 
 .company {
-  flex-basis: 35%;
+	flex-basis: 35%;
 }
 
 .company img {
-  margin-bottom:15px;
+	margin-bottom:15px;
 }
 
 .links {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 40%;
+	display: flex;
+	flex-direction: column;
+	flex-basis: 40%;
 }
 
 .links-menu {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .links-menu a {
-  color: #fff;
-  text-transform: uppercase;
+	color: #fff;
+	text-transform: uppercase;
 }
 
 .links-menu a:visited { 
-  color: #FFF; 
+	color: #FFF; 
 } 
 
 .links-menu li {
-  margin: 8px 0;
+	margin: 8px 0;
 }
 
 .contacts {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
+}
+
+.contacts a {
+	margin-top: 10px;
+	color: gold;
 }
 
 
-.contacts a {
-  margin-top: 10px;
-  color: gold;
+@media screen and (max-width: 1440px) {
+	.header {
+		background-size: auto;
+	}
+}
+
+
+@media screen and (max-width: 1199px) {
+	.container {
+		width: 960px;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.container {
+		width: 720px;
+	}
+
+	.description {
+		flex-wrap: wrap;
+	}
+
+	.desc-text {
+		flex-basis: 100%;
+		padding: 20px 0 0 0;
+	}
+
+	.desc-photo {
+		flex-basis: 100%;
+		padding-top: 40px;
+		justify-content: center;
+	}
+
+	.services {
+		margin-top: 70px;
+	}
+
+	.serv-head {
+		margin-bottom: 0px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.container {
+		width: 540px;
+	}
+
+	.serv-head {
+		margin-bottom: 0px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.serv-head h2 {
+		flex-grow: 0;
+		margin-bottom: 20px;
+	}
+
+	.serv-boxes {
+		flex-wrap: wrap;
+	}
+
+	.box {
+		flex-basis: 100%;
+		padding: 20px 10px;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	.container {
+		width: 100%;
+		padding: 0 15px;
+	}
+
+	.desc-photo {
+		flex-wrap: wrap;
+	}
+
+	.navbar img {
+		display: none;
+	}
+
+	.newslatter-form { 
+		flex-wrap: wrap;
+	}
+
+	.newslatter-form h2 { 
+		margin: 0;
+	}
+
+	.newslatter-form input { 
+		margin: 10px 0;
+	}
+
+	.footer-info { 
+		flex-wrap: wrap;
+	}
+
+	.company, .links, .contacts {
+		flex-basis: 100%;
+		margin-bottom: 35px;
+	}
 }
