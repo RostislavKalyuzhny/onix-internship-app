@@ -12,8 +12,13 @@ import './App.css';
 
 function App() {
 
+  const testButtonStyle = {
+    margin: 10 + 'px', 
+    padding: 10 + 'px',
+  }
+
   const ourStoryText = `BUILDING QUALITY HOMES AND COMMERCIAL STRUCTURES IS INCREDIBLY COMPLEX. WE HAVE A PROVEN TRACK RECORD 
-  WITH AN EXPANSIVE PORTFOLIO OF PROJECTS ACROSS A VARIETY OF PRODUCT TYPES INCLUDING CUSTOM AND SPECULATIVE HOMES, 
+  WITH AN EXPANSIVE PORTFOLIO OF PROJECTS ACROSS A letIETY OF PRODUCT TYPES INCLUDING CUSTOM AND SPECULATIVE HOMES, 
   HOSPITALITY, COMMERCIAL, RETAIL, AND TENANT IMPROVEMENTS.`;
 
   let completedProjectsValue = 67;
@@ -24,12 +29,12 @@ function App() {
   const originalDesignURL = 'https://www.figma.com/file/sUHO2mddq4ejSTDmgnx5S0/konstruct-template-(Copy)?node-id=0%3A2';
 
   const companyEvents = [
+    ['2012', 'First foreign project completed'],
     ['2008', 'Foundation of the company'],
     ['2010', 'Attraction of additional investments in connection with the expansion of the company'],
-    ['2012', 'First foreign project completed'],
-    ['2014', 'The number of employees in the company reaches 300 people'],
-    ['2018', 'Creation of an additional office. Anniversary in 50 completed projects and ten years of the company'],
+    ['2014', 'The number of employees in the company reaches 300 people'],  
     ['2020', 'Opening offices in other countries: Denmark, France, Germany'],
+    ['2018', 'Creation of an additional office. Anniversary in 50 completed projects and ten years of the company'],
   ];
 
   const menuLinks = [
@@ -101,6 +106,23 @@ function App() {
     },
   ];
 
+  const sortMass = (array) => {
+    console.log(array.sort());
+  }
+
+  function bubbleSort(a){
+    var n = a.length;
+
+    for (var i = 0; i < n-1; i++){ 
+      for (var j = 0; j < n-1-i; j++){ 
+        if (+a[j+1][0] < +a[j][0]){  // подстроил проверку под свой масив(companyEvents)  
+          var t = a[j+1]; a[j+1] = a[j]; a[j] = t; 
+        }
+      }
+    }                     
+   return a;
+  };
+
   const createLinesInTable = (lines) => {
     return lines.map( (line, index) => <tr key={ index }><td>{ line[0] }</td><td>{ line[1] }</td></tr>);
   }
@@ -120,6 +142,8 @@ function App() {
       )
     })
   }
+
+  console.log(companyEvents);
 
   return (
     <div className="App">
@@ -166,6 +190,18 @@ function App() {
               { createLinesInTable(companyEvents) }
             </tbody>  
           </table>
+
+          <button 
+            style={ testButtonStyle }
+            onClick={ () => sortMass(companyEvents) }>
+            Сортировать по годам - sort()
+          </button>
+
+          <button 
+            style={ testButtonStyle  }
+            onClick={ () => console.log(bubbleSort(companyEvents)) }>
+            Сортировать по годам - bubbleSort()
+          </button>
         </div>
       </section>
 
