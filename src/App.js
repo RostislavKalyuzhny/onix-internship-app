@@ -12,6 +12,15 @@ import './App.css';
 
 function App() {
 
+  let ourStoryText = `BUILDING QUALITY HOMES AND COMMERCIAL STRUCTURES IS INCREDIBLY COMPLEX. WE HAVE A PROVEN TRACK RECORD 
+  WITH AN EXPANSIVE PORTFOLIO OF PROJECTS ACROSS A VARIETY OF PRODUCT TYPES INCLUDING CUSTOM AND SPECULATIVE HOMES, 
+  HOSPITALITY, COMMERCIAL, RETAIL, AND TENANT IMPROVEMENTS.`;
+
+  let completedProjectsValue = 27;
+
+  let gitHubURL = 'https://github.com/RostislavKalyuzhny';
+  let originalDesignURL = 'https://www.figma.com/file/sUHO2mddq4ejSTDmgnx5S0/konstruct-template-(Copy)?node-id=0%3A2';
+
   const menuLinks = [
     {
       name: 'Home',
@@ -122,11 +131,8 @@ function App() {
             <div className="desc-text">
               <h3>Founded in 2011 by John Mathew Smith, <span>Konstruct</span> has become the number one construction management 
               firm</h3>
-              <p>
-                BUILDING QUALITY HOMES AND COMMERCIAL STRUCTURES IS INCREDIBLY COMPLEX. WE HAVE A PROVEN TRACK RECORD WITH AN 
-                EXPANSIVE PORTFOLIO OF PROJECTS ACROSS A VARIETY OF PRODUCT TYPES INCLUDING CUSTOM AND SPECULATIVE HOMES, 
-                HOSPITALITY, COMMERCIAL, RETAIL, AND TENANT IMPROVEMENTS. 
-              </p>
+              <p>{ ourStoryText }</p>
+              <p>Completed projects: { completedProjectsValue }</p>
             </div>
 
             <div className="desc-photo">
@@ -196,8 +202,8 @@ function App() {
             <div className="contacts">
               <h4>contacts</h4>
               <p>Rostislav Kalyuzhny</p>
-              <a href="https://github.com/RostislavKalyuzhny">My Github</a>
-              <a href="https://www.figma.com/file/sUHO2mddq4ejSTDmgnx5S0/konstruct-template-(Copy)?node-id=0%3A2">Original design</a>
+              <a href={ gitHubURL }>My Github</a>
+              <a href={ originalDesignURL }>Original design</a>
             </div>
           </div>
         </div>
