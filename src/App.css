@@ -187,11 +187,6 @@ h2 {
 	padding: 40px 20px;
 }
 
-.box:hover {
-	transform: scale(1.08);
-	border: 1px solid #00A4E5;
-}
-
 .box h3 {
 	text-transform: uppercase;
 	margin: 25px 0 15px 0;

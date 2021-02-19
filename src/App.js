@@ -12,14 +12,16 @@ import './App.css';
 
 function App() {
 
-  let ourStoryText = `BUILDING QUALITY HOMES AND COMMERCIAL STRUCTURES IS INCREDIBLY COMPLEX. WE HAVE A PROVEN TRACK RECORD 
+  const ourStoryText = `BUILDING QUALITY HOMES AND COMMERCIAL STRUCTURES IS INCREDIBLY COMPLEX. WE HAVE A PROVEN TRACK RECORD 
   WITH AN EXPANSIVE PORTFOLIO OF PROJECTS ACROSS A VARIETY OF PRODUCT TYPES INCLUDING CUSTOM AND SPECULATIVE HOMES, 
   HOSPITALITY, COMMERCIAL, RETAIL, AND TENANT IMPROVEMENTS.`;
 
   let completedProjectsValue = 27;
 
-  let gitHubURL = 'https://github.com/RostislavKalyuzhny';
-  let originalDesignURL = 'https://www.figma.com/file/sUHO2mddq4ejSTDmgnx5S0/konstruct-template-(Copy)?node-id=0%3A2';
+  let isNewsletterSignup = true;
+
+  const gitHubURL = 'https://github.com/RostislavKalyuzhny';
+  const originalDesignURL = 'https://www.figma.com/file/sUHO2mddq4ejSTDmgnx5S0/konstruct-template-(Copy)?node-id=0%3A2';
 
   const menuLinks = [
     {
@@ -160,15 +162,18 @@ function App() {
         </div>
       </section>
 
-      <section className="newslatter">
-        <div className="container">
-          <form className="newslatter-form">
-            <h2>Newsletter Signup</h2>
-            <input type="text" placeholder="test@youremail.com" />
-            <button type="submit">Signup</button>
-          </form>
-        </div>
-      </section>
+      { 
+        isNewsletterSignup &&
+        <section className="newslatter">
+          <div className="container">
+            <form className="newslatter-form">
+              <h2>Newsletter Signup</h2>
+              <input type="text" placeholder="test@youremail.com" />
+              <button type="submit">Signup</button>
+            </form>
+          </div>
+        </section>
+      }
 
       <footer id="contacts" className="footer">
         <div className="container">
