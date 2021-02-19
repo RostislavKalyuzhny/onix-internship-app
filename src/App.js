@@ -16,12 +16,21 @@ function App() {
   WITH AN EXPANSIVE PORTFOLIO OF PROJECTS ACROSS A VARIETY OF PRODUCT TYPES INCLUDING CUSTOM AND SPECULATIVE HOMES, 
   HOSPITALITY, COMMERCIAL, RETAIL, AND TENANT IMPROVEMENTS.`;
 
-  let completedProjectsValue = 27;
+  let completedProjectsValue = 67;
 
   let isNewsletterSignup = true;
 
   const gitHubURL = 'https://github.com/RostislavKalyuzhny';
   const originalDesignURL = 'https://www.figma.com/file/sUHO2mddq4ejSTDmgnx5S0/konstruct-template-(Copy)?node-id=0%3A2';
+
+  const companyEvents = [
+    ['2008', 'Foundation of the company'],
+    ['2010', 'Attraction of additional investments in connection with the expansion of the company'],
+    ['2012', 'First foreign project completed'],
+    ['2014', 'The number of employees in the company reaches 300 people'],
+    ['2018', 'Creation of an additional office. Anniversary in 50 completed projects and ten years of the company'],
+    ['2020', 'Opening offices in other countries: Denmark, France, Germany'],
+  ];
 
   const menuLinks = [
     {
@@ -92,8 +101,12 @@ function App() {
     },
   ];
 
+  const createLinesInTable = (lines) => {
+    return lines.map( (line, index) => <tr key={ index }><td>{ line[0] }</td><td>{ line[1] }</td></tr>);
+  }
+
   const createLinks = (links) => {
-    return links.map( link => <li key={ link.name }><a href={ link.href }>{ link.name }</a></li>)
+    return links.map( link => <li key={ link.name }><a href={ link.href }>{ link.name }</a></li>);
   }
 
   const createBoxes = (boxes) => {
@@ -131,7 +144,7 @@ function App() {
           <h2>Our Story</h2>
           <div className="description">
             <div className="desc-text">
-              <h3>Founded in 2011 by John Mathew Smith, <span>Konstruct</span> has become the number one construction management 
+              <h3>Founded in 2008 by John Mathew Smith, <span>Konstruct</span> has become the number one construction management 
               firm</h3>
               <p>{ ourStoryText }</p>
               <p>Completed projects: { completedProjectsValue }</p>
@@ -143,6 +156,16 @@ function App() {
               <img src={ deliver } alt="Build" />
             </div>
           </div>
+
+          <table>
+            <thead>
+              <tr><th>Year</th><th>Event</th></tr>
+            </thead>  
+
+            <tbody>
+              { createLinesInTable(companyEvents) }
+            </tbody>  
+          </table>
         </div>
       </section>
 
