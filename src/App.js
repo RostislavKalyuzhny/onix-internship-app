@@ -106,8 +106,8 @@ function App() {
     },
   ];
 
-  const sortMass = (array) => {
-    console.log(array.sort());
+  const defaultSort = (array) => {
+    return array.sort();
   }
 
   function bubbleSort(a){
@@ -122,6 +122,16 @@ function App() {
     }                     
    return a;
   };
+
+  const addElemToArray = (elem, array) => {
+    array.push(elem);
+    console.log(array);
+  }
+
+  const deleteLastElemWithArray = (array) => {
+    array.pop();
+    console.log(array);
+  }
 
   const createLinesInTable = (lines) => {
     return lines.map( (line, index) => <tr key={ index }><td>{ line[0] }</td><td>{ line[1] }</td></tr>);
@@ -193,7 +203,7 @@ function App() {
 
           <button 
             style={ testButtonStyle }
-            onClick={ () => sortMass(companyEvents) }>
+            onClick={ () => console.log(defaultSort(companyEvents)) }>
             Сортировать по годам - sort()
           </button>
 
@@ -201,6 +211,18 @@ function App() {
             style={ testButtonStyle  }
             onClick={ () => console.log(bubbleSort(companyEvents)) }>
             Сортировать по годам - bubbleSort()
+          </button>
+
+          <button 
+            style={ testButtonStyle  }
+            onClick={ () => addElemToArray(['year', 'event'], companyEvents)}>
+            Добавить елемент
+          </button>
+
+          <button 
+            style={ testButtonStyle  }
+            onClick={ () => deleteLastElemWithArray(companyEvents)}>
+            Удалить елемент
           </button>
         </div>
       </section>
