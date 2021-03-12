@@ -160,7 +160,7 @@ function App() {
 		},
 	];
 
-	const defaultSort = (array) => {
+	/*const defaultSort = (array) => {
 		return array.sort();
 	}
 
@@ -175,17 +175,17 @@ function App() {
     		}
 		}                     
 		return a;
-	};
+	};*/
 
-	const addElemToArray = (elem, array) => {
-		array.push(elem);
-		console.log(array);
+	const changePropertiesInObject = ( properties, array, numOfObj) => {
+		array[numOfObj] = { ...array[numOfObj], ...properties };
+		console.log("original array", companyEvents);
 	}
 
-	const deleteLastElemWithArray = (array) => {
+	/*const deleteLastElemWithArray = (array) => {
 		array.pop();
 		console.log(array);
-	}
+	}*/
 
 	const createLinesInTable = (lines) => {
 		return lines.map( line => 
@@ -211,7 +211,7 @@ function App() {
 		})
 	}
 
-	console.log(companyEvents);
+	console.log("original array", companyEvents);
 
 	return (
 		<div className="App">
@@ -259,7 +259,7 @@ function App() {
 						</tbody>  
 					</table>
 
-					<button 
+					{/*<button 
 						style={ testButtonStyle }
 						onClick={ () => console.log(defaultSort(companyEvents)) }>
 						Сортировать по годам - sort()
@@ -269,19 +269,19 @@ function App() {
 						style={ testButtonStyle  }
 						onClick={ () => console.log(bubbleSort(companyEvents)) }>
 						Сортировать по годам - bubbleSort()
-					</button>
+					</button>*/}
 
 					<button 
 						style={ testButtonStyle  }
-						onClick={ () => addElemToArray(['year', 'event'], companyEvents)}>
-						Добавить елемент
+						onClick={ () => changePropertiesInObject({ event: "There is no holiday on this day", link: true}, companyEvents, 5)}>
+						Изменить (index=5) объект.
 					</button>
 
-					<button 
+					{/*<button 
 						style={ testButtonStyle  }
 						onClick={ () => deleteLastElemWithArray(companyEvents)}>
 						Удалить елемент
-					</button>
+					</button>*/}
 				</div>
 			</section>
 
