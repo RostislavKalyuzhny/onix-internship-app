@@ -177,15 +177,19 @@ function App() {
 		return a;
 	};*/
 
-	const changePropertiesInObject = ( properties, array, numOfObj) => {
-		array[numOfObj] = { ...array[numOfObj], ...properties };
+	const changePropertiesInObject = (properties, array, indexOfObject) => {
+		array[indexOfObject] = { ...array[indexOfObject], ...properties };
 		console.log("original array", companyEvents);
 	}
 
-	/*const deleteLastElemWithArray = (array) => {
-		array.pop();
-		console.log(array);
-	}*/
+	const deletePropertiesInObject = (property, array, indexOfObject) => {
+		if (array[indexOfObject].hasOwnProperty(property)) {
+			delete array[indexOfObject][property];
+		} else {
+			console.error('Not found property');
+		}
+		console.log("original array", companyEvents);
+	}
 
 	const createLinesInTable = (lines) => {
 		return lines.map( line => 
@@ -277,11 +281,11 @@ function App() {
 						Изменить (index=5) объект.
 					</button>
 
-					{/*<button 
+					<button 
 						style={ testButtonStyle  }
-						onClick={ () => deleteLastElemWithArray(companyEvents)}>
-						Удалить елемент
-					</button>*/}
+						onClick={ () => deletePropertiesInObject("event", companyEvents, 3)}>
+						Удалить event в (index=3) объекте.
+					</button>
 				</div>
 			</section>
 
