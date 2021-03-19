@@ -75,7 +75,7 @@ function App() {
 			important: true,
 			date: {
 				year: 2020,
-				month: 12,
+				month: 11,
 				day: 4,
 			},
 		},
@@ -160,22 +160,32 @@ function App() {
 		},
 	];
 
-	/*const defaultSort = (array) => {
-		return array.sort();
+	const defaultSortByDate = (array) => {  //сортировка по возрастающей дате
+		console.log("original array", array);
+		return [...array].sort((a, b) => {
+			let dateA = new Date(...Object.values(a.date));
+			let dateB = new Date(...Object.values(b.date));
+			return dateA - dateB; 		
+		});
 	}
 
-	function bubbleSort(a){
-		var n = a.length;
+	function bubbleSortByDate(array){ 			//сортировка по убывающей дате
+		console.log("original array", array);
+		let a = [...array]; 
+		const n = a.length;
 
-		for (var i = 0; i < n-1; i++){ 
-			for (var j = 0; j < n-1-i; j++){ 
-        if (+a[j+1][0] < +a[j][0]){  // подстроил проверку под свой масив(companyEvents)  
-        	var t = a[j+1]; a[j+1] = a[j]; a[j] = t; 
-        	}
-    		}
-		}                     
+		for (let i = 0; i < n-1; i++){
+
+			for (let j = 0; j < n-1-i; j++){
+				// подстроил проверку под свой масив(companyEvents)  
+		        if ( new Date(...Object.values(a[j+1].date)) > new Date(...Object.values(a[j].date)) ){  
+		        	let t = a[j+1]; a[j+1] = a[j]; a[j] = t; 
+		        }
+		    }
+		} 
+
 		return a;
-	};*/
+	};
 
 	const mergerObjects = (...prop) => {
 		console.log(Object.assign(...prop));
@@ -223,8 +233,6 @@ function App() {
 		})
 	}
 
-	console.log("original array", companyEvents);
-
 	return (
 		<div className="App">
 			<header className="header">
@@ -271,17 +279,17 @@ function App() {
 						</tbody>  
 					</table>
 
-					{/*<button 
+					<button 
 						style={ testButtonStyle }
-						onClick={ () => console.log(defaultSort(companyEvents)) }>
-						Сортировать по годам - sort()
+						onClick={ () => console.log('sorted array', defaultSortByDate(companyEvents)) }>
+						defaultSortByDate(companyEvents)
 					</button>
 
 					<button 
 						style={ testButtonStyle  }
-						onClick={ () => console.log(bubbleSort(companyEvents)) }>
-						Сортировать по годам - bubbleSort()
-					</button>*/}
+						onClick={ () => console.log('sorted array', bubbleSortByDate(companyEvents)) }>
+						bubbleSortByDate(companyEvents)
+					</button>
 
 					<button 
 						style={ testButtonStyle  }
