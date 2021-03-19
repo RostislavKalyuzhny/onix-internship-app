@@ -177,6 +177,14 @@ function App() {
 		return a;
 	};*/
 
+	const mergerObjects = (...prop) => {
+		console.log(Object.assign(...prop));
+	}
+
+	const countPropertiesInObject = (obj) => {
+		console.log('Свойства объекта:', Object.keys(obj));
+	}
+
 	const changePropertiesInObject = (properties, array, indexOfObject) => {
 		array[indexOfObject] = { ...array[indexOfObject], ...properties };
 		console.log("original array", companyEvents);
@@ -285,6 +293,18 @@ function App() {
 						style={ testButtonStyle  }
 						onClick={ () => deletePropertiesInObject("event", companyEvents, 3)}>
 						Удалить event в (index=3) объекте.
+					</button>
+
+					<button 
+						style={ testButtonStyle  }
+						onClick={ () => countPropertiesInObject(companyEvents[3])}>
+						countPropertiesInObject(companyEvents[3])
+					</button>
+
+					<button 
+						style={ testButtonStyle  }
+						onClick={ () => mergerObjects(companyEvents[3], menuLinks[3])}>
+						mergerObjects(companyEvents[3], menuLinks[3])
 					</button>
 				</div>
 			</section>
