@@ -160,6 +160,8 @@ function App() {
 		},
 	];
 
+	/* Functions */
+
 	const defaultSortByDate = (array) => {  //сортировка по возрастающей дате
 		console.log("original array", array);
 		return [...array].sort((a, b) => {
@@ -195,19 +197,23 @@ function App() {
 		console.log('Свойства объекта:', Object.keys(obj));
 	}
 
-	const changePropertiesInObject = (properties, array, indexOfObject) => {
-		array[indexOfObject] = { ...array[indexOfObject], ...properties };
-		console.log("original array", companyEvents);
+	const changePropertiesInObject = (properties, object) => {
+		console.log("original object", object);
+		return { ...object, ...properties };
 	}
 
-	const deletePropertiesInObject = (property, array, indexOfObject) => {
-		if (array[indexOfObject].hasOwnProperty(property)) {
-			delete array[indexOfObject][property];
+	const deletePropertiesInObject = (property, object) => {
+		console.log("original object", object);
+
+		if (object.hasOwnProperty(property)) {
+			const { [property]: deletedProp, ...restObject } = object;
+			return restObject;
 		} else {
 			console.error('Not found property');
 		}
-		console.log("original array", companyEvents);
 	}
+
+	/* Render functions */
 
 	const createLinesInTable = (lines) => {
 		return lines.map( line => 
@@ -256,8 +262,8 @@ function App() {
 					<h2>Our Story</h2>
 					<div className="description">
 						<div className="desc-text">
-							<h3>Founded in 2008 by John Mathew Smith, <span>Konstruct</span> has become the number one construction management 
-							firm</h3>
+							<h3>Founded in 2008 by John Mathew Smith, <span>Konstruct</span> has become the number one construction 
+							management firm</h3>
 							<p>{ ourStoryText }</p>
 							<p>Completed projects: { completedProjectsValue }</p>
 						</div>
@@ -293,14 +299,21 @@ function App() {
 
 					<button 
 						style={ testButtonStyle  }
-						onClick={ () => changePropertiesInObject({ event: "There is no holiday on this day", link: true}, companyEvents, 5)}>
-						Изменить (index=5) объект.
+						onClick={ 
+							() => console.log("modified object", changePropertiesInObject(
+								{ event: "There is no celebration on this day :(", link: true}, 
+								companyEvents[5])
+							)
+						}>
+						changePropertiesInObject(..)
 					</button>
 
 					<button 
 						style={ testButtonStyle  }
-						onClick={ () => deletePropertiesInObject("event", companyEvents, 3)}>
-						Удалить event в (index=3) объекте.
+						onClick={ () => 
+							console.log("modified object", deletePropertiesInObject("event", companyEvents[3]))
+						}>
+						deletePropertiesInObject(..)
 					</button>
 
 					<button 
