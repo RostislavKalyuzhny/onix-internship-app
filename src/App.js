@@ -1,8 +1,9 @@
-import logoBlack from './img/projeco-logo-black.png';
-import logoWhite from './img/projeco-logo-white.png';
-import plan from './img/plan.jpg';
-import manage from './img/manage.jpg';
-import deliver from './img/deliver.jpg';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+import About from './components/About';
+import Services from './components/Services';
+import Newslatter from './components/Newslatter';
+import Footer from './components/Footer';
 
 import bitmap from './img/icons/Bitmap.svg';
 import bitmap2 from './img/icons/Bitmap-2.svg';
@@ -12,21 +13,44 @@ import './App.css';
 
 function App() {
 
-	const testButtonStyle = {
-		margin: 10 + 'px', 
-		padding: 10 + 'px',
-	}
+	const menuLinks = [
+		{
+			name: 'Home',
+			href: '#'
+		},
+		{
+			name: 'About',
+			href: '#about'
+		},
+		{
+			name: 'Services',
+			href: '#services'
+		},
+		{
+			name: 'Contacts',
+			href: '#contacts'
+		},
+	];
 
-	const ourStoryText = `BUILDING QUALITY HOMES AND COMMERCIAL STRUCTURES IS INCREDIBLY COMPLEX. WE HAVE A PROVEN TRACK RECORD 
-	WITH AN EXPANSIVE PORTFOLIO OF PROJECTS ACROSS A letIETY OF PRODUCT TYPES INCLUDING CUSTOM AND SPECULATIVE HOMES, 
-	HOSPITALITY, COMMERCIAL, RETAIL, AND TENANT IMPROVEMENTS.`;
-
-	let completedProjectsValue = 67;
-
-	let isNewsletterSignup = true;
-
-	const gitHubURL = 'https://github.com/RostislavKalyuzhny';
-	const originalDesignURL = 'https://www.figma.com/file/sUHO2mddq4ejSTDmgnx5S0/konstruct-template-(Copy)?node-id=0%3A2';
+	const serviceBoxes = [
+		{
+			img : bitmap,
+			title : 'PROJECT AND CONSTRUCTION MANAGEMENT',
+			text: `Construction is art and craft, but efficiently managing the project is a science. We hold ourselves to the highest 
+			standard to deliver your project on time and at a level of quality that precedes our reputation.`
+		},
+		{
+			img : bitmap2,
+			title : 'STRUCTURE AUDIT AND MAINTENANCE',
+			text: `Procore is a comprehensive construction software suite offering our clients on demand access to valuable 
+			information regarding scheduling, milestones, budgets, change orders, finish selections, and more. `
+		},
+		{
+			img : bitmap3,
+			title : 'FACTORY CONSTRUCTION AND MODELING',
+			text: `Your finished product will reflect the resources, time, and passion we bring to every project.`
+		},
+	];
 
 	const companyEvents = [
 		{ 
@@ -91,25 +115,6 @@ function App() {
 		},
 	];
 
-	const menuLinks = [
-		{
-			name: 'Home',
-			href: '#'
-		},
-		{
-			name: 'About',
-			href: '#about'
-		},
-		{
-			name: 'Services',
-			href: '#services'
-		},
-		{
-			name: 'Contacts',
-			href: '#contacts'
-		},
-	];
-
 	const footerLinks1 = [
 		{
 			name: 'Faq',
@@ -140,263 +145,22 @@ function App() {
 		},
 	];
 
-	const serviceBoxes = [
-		{
-			img : bitmap,
-			title : 'PROJECT AND CONSTRUCTION MANAGEMENT',
-			text: `Construction is art and craft, but efficiently managing the project is a science. We hold ourselves to the highest 
-			standard to deliver your project on time and at a level of quality that precedes our reputation.`
-		},
-		{
-			img : bitmap2,
-			title : 'STRUCTURE AUDIT AND MAINTENANCE',
-			text: `Procore is a comprehensive construction software suite offering our clients on demand access to valuable 
-			information regarding scheduling, milestones, budgets, change orders, finish selections, and more. `
-		},
-		{
-			img : bitmap3,
-			title : 'FACTORY CONSTRUCTION AND MODELING',
-			text: `Your finished product will reflect the resources, time, and passion we bring to every project.`
-		},
-	];
-
-	/* Functions */
-
-	const defaultSortByDate = (array) => {  //сортировка по возрастающей дате
-		console.log("original array", array);
-		return [...array].sort((a, b) => {
-			let dateA = new Date(...Object.values(a.date));
-			let dateB = new Date(...Object.values(b.date));
-			return dateA - dateB; 		
-		});
-	}
-
-	function bubbleSortByDate(array){ 			//сортировка по убывающей дате
-		console.log("original array", array);
-		let a = [...array]; 
-		const n = a.length;
-
-		for (let i = 0; i < n-1; i++){
-
-			for (let j = 0; j < n-1-i; j++){
-				// подстроил проверку под свой масив(companyEvents)  
-		        if ( new Date(...Object.values(a[j+1].date)) > new Date(...Object.values(a[j].date)) ){  
-		        	let t = a[j+1]; a[j+1] = a[j]; a[j] = t; 
-		        }
-		    }
-		} 
-
-		return a;
-	};
-
-	const mergerObjects = (...prop) => {
-		console.log(Object.assign(...prop));
-	}
-
-	const countPropertiesInObject = (obj) => {
-		console.log('Свойства объекта:', Object.keys(obj));
-	}
-
-	const changePropertiesInObject = (properties, object) => {
-		console.log("original object", object);
-		return { ...object, ...properties };
-	}
-
-	const deletePropertiesInObject = (property, object) => {
-		console.log("original object", object);
-
-		if (object.hasOwnProperty(property)) {
-			const { [property]: deletedProp, ...restObject } = object;
-			return restObject;
-		} else {
-			console.error('Not found property');
-		}
-	}
-
-	/* Render functions */
-
-	const createLinesInTable = (lines) => {
-		return lines.map( line => 
-			<tr key={ line.id } style = { line.important ? { fontWeight: 900 } : null }>
-				<td>{ `${line.date.day}/${line.date.month}/${line.date.year}` }</td>
-				<td>{ line.event }</td>
-			</tr>);
-	}
-
-	const createLinks = (links) => {
-		return links.map( link => <li key={ link.name }><a href={ link.href }>{ link.name }</a></li>);
-	}
-
-	const createBoxes = (boxes) => {
-		return boxes.map( (box, index) => {
-			return (
-				<div key={index} className="box">
-					<img src={ box.img } alt={ box.img } />
-					<h3>{ box.title }</h3>
-					<p>{ box.text }</p>
-				</div>
-			)
-		})
-	}
-
 	return (
 		<div className="App">
-			<header className="header">
+			<Header />
 
-			</header>
+			<Navigation links={ menuLinks }/>
 
-			<nav className="nav">
-				<div className="container">
-					<div className="navbar">
-						<img src={ logoBlack } alt="Konstruct" />
+			<About companyEvents={ companyEvents }/>
 
-						<ul className="menu">
-							{ createLinks(menuLinks) }
-						</ul>
-					</div>
-				</div>
-			</nav>
+			<Services services={ serviceBoxes }/>
 
-			<section id="about" className="about">
-				<div className="container">
-					<h2>Our Story</h2>
-					<div className="description">
-						<div className="desc-text">
-							<h3>Founded in 2008 by John Mathew Smith, <span>Konstruct</span> has become the number one construction 
-							management firm</h3>
-							<p>{ ourStoryText }</p>
-							<p>Completed projects: { completedProjectsValue }</p>
-						</div>
+			<Newslatter visible={ true }/>
 
-						<div className="desc-photo">
-							<img src={ plan } alt="Plan" />
-							<img src={ manage } alt="Manage" />
-							<img src={ deliver } alt="Build" />
-						</div>
-					</div>
-
-					<table>
-						<thead>
-							<tr><th>Year</th><th>Event</th></tr>
-						</thead>  
-
-						<tbody>
-							{ createLinesInTable(companyEvents) }
-						</tbody>  
-					</table>
-
-					<button 
-						style={ testButtonStyle }
-						onClick={ () => console.log('sorted array', defaultSortByDate(companyEvents)) }>
-						defaultSortByDate(companyEvents)
-					</button>
-
-					<button 
-						style={ testButtonStyle  }
-						onClick={ () => console.log('sorted array', bubbleSortByDate(companyEvents)) }>
-						bubbleSortByDate(companyEvents)
-					</button>
-
-					<button 
-						style={ testButtonStyle  }
-						onClick={ 
-							() => console.log("modified object", changePropertiesInObject(
-								{ event: "There is no celebration on this day :(", link: true}, 
-								companyEvents[5])
-							)
-						}>
-						changePropertiesInObject(..)
-					</button>
-
-					<button 
-						style={ testButtonStyle  }
-						onClick={ () => 
-							console.log("modified object", deletePropertiesInObject("event", companyEvents[3]))
-						}>
-						deletePropertiesInObject(..)
-					</button>
-
-					<button 
-						style={ testButtonStyle  }
-						onClick={ () => countPropertiesInObject(companyEvents[3])}>
-						countPropertiesInObject(companyEvents[3])
-					</button>
-
-					<button 
-						style={ testButtonStyle  }
-						onClick={ () => mergerObjects(companyEvents[3], menuLinks[3])}>
-						mergerObjects(companyEvents[3], menuLinks[3])
-					</button>
-				</div>
-			</section>
-
-			<section id="services" className="services">
-				<div className="container">
-					<div className="serv-head">
-						<h2>OUR CAPABILITIES</h2>
-						<p>
-							BUILDING QUALITY HOMES AND COMMERCIAL STRUCTURES IS INCREDIBLY COMPLEX.
-						</p>
-						<a href="#services">all services</a>
-					</div>
-
-					<div className="serv-boxes">
-						{ createBoxes(serviceBoxes) }
-					</div>            
-				</div>
-			</section>
-
-			{ 
-				isNewsletterSignup &&
-				<section className="newslatter">
-					<div className="container">
-						<form className="newslatter-form">
-							<h2>Newsletter Signup</h2>
-							<input type="text" placeholder="test@youremail.com" />
-							<button type="submit">Signup</button>
-						</form>
-					</div>
-				</section>
-			}
-
-			<footer id="contacts" className="footer">
-				<div className="container">
-					<div className="footer-info">
-						<div className="company">
-							<h4>COMPANY</h4>
-							<img src={ logoWhite } alt="Konstruct" />
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Perferendis recusandae rem explicabo 
-								nobis illum quae nemo.
-							</p>
-						</div>
-
-						<div className="links">
-							<h4>Links</h4>
-							<nav className="links-menu">
-								<ul>
-									{ createLinks(menuLinks) }
-								</ul>
-
-								<ul>
-									{ createLinks(footerLinks1) }
-								</ul>
-
-								<ul>
-									{ createLinks(footerLinks2) }   
-								</ul>
-							</nav>
-						</div>
-
-						<div className="contacts">
-							<h4>contacts</h4>
-							<p>Rostislav Kalyuzhny</p>
-							<a href={ gitHubURL }>My Github</a>
-							<a href={ originalDesignURL }>Original design</a>
-						</div>
-					</div>
-				</div>
-			</footer>
+			<Footer
+				menuLinks={ menuLinks }
+				menuBlock1={ footerLinks1 }
+				menuBlock2={ footerLinks2 }/>
 		</div>
 	);
 }
