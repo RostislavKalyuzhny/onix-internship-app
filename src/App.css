@@ -168,6 +168,39 @@ tr:hover td {
 	color: #6699ff;
 }
 
+	/* CHARACTERS */
+
+.characters {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.characters-tittle{
+	text-align: center;
+	margin-top: 30px;
+}
+
+.box-character {
+	max-width: 18%;
+	max-height: 400px;
+	margin: 1%;
+	padding: 10px 20px;
+	border: 1px solid black;
+	background-color: #D9D9D9;
+}
+
+.box-character .content {
+	text-align: center;
+}
+
+.box-character .content p{
+	margin: 5px;
+}
+
+.box-character img {
+	width: 100%;
+}
+
 	/*	SERVICES	*/
 
 .services {

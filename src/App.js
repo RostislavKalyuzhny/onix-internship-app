@@ -4,6 +4,7 @@ import About from './components/About';
 import Services from './components/Services';
 import Newslatter from './components/Newslatter';
 import Footer from './components/Footer';
+import Characters from './components/Characters';
 
 import bitmap from './img/icons/Bitmap.svg';
 import bitmap2 from './img/icons/Bitmap-2.svg';
@@ -152,6 +153,8 @@ function App() {
 			<Navigation links={ menuLinks }/>
 
 			<About companyEvents={ companyEvents }/>
+
+			<Characters />
 
 			<Services services={ serviceBoxes }/>
 
