@@ -6,9 +6,7 @@ const Footer = ({ menuLinks, menuBlock1, menuBlock2 }) => {
 	const gitHubURL = 'https://github.com/RostislavKalyuzhny';
 	const originalDesignURL = 'https://www.figma.com/file/sUHO2mddq4ejSTDmgnx5S0/konstruct-template-(Copy)?node-id=0%3A2';
 
-	const createLinks = (links) => {
-		return links.map( link => <li key={ link.name }><a href={ link.href }>{ link.name }</a></li>);
-	}
+	const createLinks = (links) => links.map( link => <li key={ link.name }><a href={ link.href }>{ link.name }</a></li>);
 
 	return (
 		<footer id="contacts" className="footer">

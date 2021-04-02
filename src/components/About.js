@@ -42,13 +42,9 @@ const About = ({ companyEvents }) => {
 		return a;
 	};
 
-	const mergerObjects = (...prop) => {
-		console.log(Object.assign(...prop));
-	}
+	const mergerObjects = (...prop) => Object.assign(...prop);
 
-	const countPropertiesInObject = (obj) => {
-		console.log('Свойства объекта:', Object.keys(obj));
-	}
+	const countPropertiesInObject = (obj) => console.log('Свойства объекта:', Object.keys(obj));
 
 	const changePropertiesInObject = (properties, object) => {
 		console.log("original object", object);
@@ -142,7 +138,7 @@ const About = ({ companyEvents }) => {
 
 				<button 
 					style={ testButtonStyle  }
-					onClick={ () => mergerObjects(companyEvents[3], companyEvents[2])}>
+					onClick={ () => console.log(mergerObjects(companyEvents[3], companyEvents[2]))}>
 					mergerObjects(companyEvents[3], menuLinks[3])
 				</button>*/}
 			</div>

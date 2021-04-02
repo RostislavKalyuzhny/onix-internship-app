@@ -2,9 +2,7 @@ import logoBlack from '../img/projeco-logo-black.png';
 
 const Navigation = ({ links }) => {
 
-	const createLinks = (links) => {
-		return links.map( link => <li key={ link.name }><a href={ link.href }>{ link.name }</a></li>);
-	}
+	const createLinks = (links) => links.map( link => <li key={ link.name }><a href={ link.href }>{ link.name }</a></li>);
 
 	return (
 		<nav className="nav">
