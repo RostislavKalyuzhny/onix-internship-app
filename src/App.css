@@ -173,6 +173,7 @@ tr:hover td {
 .characters {
 	display: flex;
 	flex-wrap: wrap;
+	cursor: grab;
 }
 
 .characters-tittle{
