@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import logoBlack from '../img/projeco-logo-black.png';
 
 const Navigation = ({ links }) => {
@@ -17,6 +19,10 @@ const Navigation = ({ links }) => {
 			</div>
 		</nav>
 	)
+}
+
+Navigation.propTypes = {
+	links: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default Navigation;

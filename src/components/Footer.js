@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 import logoWhite from '../img/projeco-logo-white.png';
 
@@ -48,6 +49,12 @@ const Footer = ({ menuLinks, menuBlock1, menuBlock2 }) => {
 			</div>
 		</footer>
 	)
+}
+
+Footer.propTypes = {
+	menuLinks: PropTypes.arrayOf(PropTypes.object), 
+	menuBlock1: PropTypes.arrayOf(PropTypes.object), 
+	menuBlock2: PropTypes.arrayOf(PropTypes.object), 
 }
 
 export default Footer;

@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 
 const Services = ({ services }) => {
 
@@ -31,6 +31,10 @@ const Services = ({ services }) => {
 			</div>
 		</section>
 	)
+}
+
+Services.propTypes = {
+	services: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default Services;

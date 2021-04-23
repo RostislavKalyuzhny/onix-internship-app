@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 const Newslatter = ({ visible }) => {
 
@@ -13,6 +14,10 @@ const Newslatter = ({ visible }) => {
 				</div>
 			</section>
 	)
+}
+
+Newslatter.propTypes = {
+	visible: PropTypes.bool,
 }
 
 export default Newslatter;

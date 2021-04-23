@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const CharactersViewItem = ({ character, index, dragStartHandler, dragOverHandler, dropHandler, focusHandler, blurHandler }) => {
 
@@ -29,6 +30,22 @@ const CharactersViewItem = ({ character, index, dragStartHandler, dragOverHandle
 				</div>
 		</div>
 	)
+}
+
+CharactersViewItem.propTypes = {
+	character: PropTypes.shape({ 
+		image: PropTypes.string, 
+		name: PropTypes.string, 
+		gender: PropTypes.string, 
+		species: PropTypes.string, 
+		status: PropTypes.string,
+	}),
+	index: PropTypes.number,
+	dragStartHandler: PropTypes.func,
+	dragOverHandler: PropTypes.func,
+	dropHandler: PropTypes.func,
+	focusHandler: PropTypes.func,
+	blurHandler: PropTypes.func,
 }
 
 export default CharactersViewItem;

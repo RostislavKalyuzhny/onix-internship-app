@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import plan from '../img/plan.jpg';
 import manage from '../img/manage.jpg';
 import deliver from '../img/deliver.jpg';
@@ -144,6 +146,10 @@ const About = ({ companyEvents }) => {
 			</div>
 		</section>
 	)
+}
+
+About.propTypes = {
+	companyEvents: PropTypes.array,
 }
 
 export default About;
