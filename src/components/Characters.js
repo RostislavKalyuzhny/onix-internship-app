@@ -47,6 +47,14 @@ const Characters = () => {
 		setCharacters(newCharacters);
 	}
 
+	const focusHandler = (event) => {
+		event.target.style.transform = 'scale(1.1)';
+	}
+
+	const blurHandler = (event) => {
+		event.target.style.transform = 'scale(1)';
+	}
+
 	if (error) {
 		return <div style={ { textAlign: 'center' } }> Ошибка: {error.message} ☢</div>;
 	} else if (!isLoaded) {
@@ -63,18 +71,25 @@ const Characters = () => {
 									className="box-character" 
 									key={ id }
 									draggable={ true }
+									tabIndex={ id }
 									onDragStart={ (event) => dragStartHandler(event, index) }
 									onDragOver={ (event) => dragOverHandler(event) }
 									onDrop={ (event) => dropHandler(event, index) }
+									onFocus={ (event) => focusHandler(event) }
+									onBlur={ (event) => blurHandler(event) }
 									>
-									<img src={ image } alt={ name } draggable={ false }/>
+										<img 
+											src={ image } 
+											alt={ name } 
+											draggable={ false }
+										/>
 
-									<div className="content">
-										<h3>{ name }</h3>
-										<p>Gender: { gender }</p>
-										<p>Species: { species }</p>
-										<p style = { (status === 'Alive') ? { color: 'green' } : { color: 'red' } }>Status: { status }</p>
-									</div>
+										<div className="content">
+											<h3>{ name }</h3>
+											<p>Gender: { gender }</p>
+											<p>Species: { species }</p>
+											<p style = { (status === 'Alive') ? { color: 'green' } : { color: 'red' } }>Status: { status }</p>
+										</div>
 								</div>
 							)
 						})
