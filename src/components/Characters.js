@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import CharactersViewItem from './CharactersViewItem.jsx';
+
 const Characters = () => {
 
 	const [error, setError] = useState(null);
@@ -27,21 +29,13 @@ const Characters = () => {
 		setDragCard(index);
 	}
 
-	/*const dragEndHandler = (event) => {
-
-	}
-
-	const dragLeaveHandler = (event) => {
-		event.target.style.transform = 'scale(1)';
-	}*/
-
 	const dragOverHandler = (event) => {
 		event.preventDefault();
-		/*event.target.style.transform = 'scale(1.1)';*/
 	}
 
 	const dropHandler = (event, index) => {
 		event.preventDefault();
+
 		let newCharacters = [...characters];
 		[newCharacters[index], newCharacters[dragCard]]  = [newCharacters[dragCard], newCharacters[index]];
 		setCharacters(newCharacters);
@@ -62,37 +56,19 @@ const Characters = () => {
 	} else {
 		return (
 			<div className="container">
-				<h2 className="characters-tittle">Get all Rick and Morty characters</h2>
+				<h2 className="characters-tittle">Our employees</h2>
 				<div className="characters">
-					{ 
-						characters.map(({ id, image, name, gender, species, status }, index) => {
-							return (
-								<div 
-									className="box-character" 
-									key={ id }
-									draggable={ true }
-									tabIndex={ id }
-									onDragStart={ (event) => dragStartHandler(event, index) }
-									onDragOver={ (event) => dragOverHandler(event) }
-									onDrop={ (event) => dropHandler(event, index) }
-									onFocus={ (event) => focusHandler(event) }
-									onBlur={ (event) => blurHandler(event) }
-									>
-										<img 
-											src={ image } 
-											alt={ name } 
-											draggable={ false }
-										/>
-
-										<div className="content">
-											<h3>{ name }</h3>
-											<p>Gender: { gender }</p>
-											<p>Species: { species }</p>
-											<p style = { (status === 'Alive') ? { color: 'green' } : { color: 'red' } }>Status: { status }</p>
-										</div>
-								</div>
-							)
-						})
+					{ characters.map( (character, index) => 
+						<CharactersViewItem 
+							key={ character.id }
+							index={ index } 
+							character={ character } 
+							dragStartHandler={ dragStartHandler }
+							dragOverHandler={ dragOverHandler }
+							dropHandler={ dropHandler }
+							focusHandler={ focusHandler }
+							blurHandler={ blurHandler }
+						/>) 
 					}
 				</div>		
 			</div>
