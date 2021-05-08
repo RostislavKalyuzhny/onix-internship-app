@@ -6,10 +6,10 @@ import deliver from '../img/deliver.jpg';
 
 const About = ({ companyEvents }) => {
 
-	/*const testButtonStyle = {
+	const testButtonStyle = {
 		margin: 10 + 'px', 
 		padding: 10 + 'px',
-	}*/
+	}
 
 	const ourStoryText = `BUILDING QUALITY HOMES AND COMMERCIAL STRUCTURES IS INCREDIBLY COMPLEX. WE HAVE A PROVEN TRACK RECORD 
 	WITH AN EXPANSIVE PORTFOLIO OF PROJECTS ACROSS A letIETY OF PRODUCT TYPES INCLUDING CUSTOM AND SPECULATIVE HOMES, 
@@ -17,7 +17,7 @@ const About = ({ companyEvents }) => {
 
 	let completedProjectsValue = 67;
 
-	/*const defaultSortByDate = (array) => {  //сортировка по возрастающей дате
+	const defaultSortByDate = (array) => {  //сортировка по возрастающей дате
 		console.log("original array", array);
 		return [...array].sort((a, b) => {
 			let dateA = new Date(...Object.values(a.date));
@@ -62,7 +62,7 @@ const About = ({ companyEvents }) => {
 		} else {
 			console.error('Not found property');
 		}
-	}*/
+	}
 
 	const createLinesInTable = (lines) => {
 		return lines.map( line => 
@@ -101,7 +101,7 @@ const About = ({ companyEvents }) => {
 					</tbody>  
 				</table>
 
-				{/*<button 
+				<button 
 					style={ testButtonStyle }
 					onClick={ () => console.log('sorted array', defaultSortByDate(companyEvents)) }>
 					defaultSortByDate(companyEvents)
@@ -142,7 +142,7 @@ const About = ({ companyEvents }) => {
 					style={ testButtonStyle  }
 					onClick={ () => console.log(mergerObjects(companyEvents[3], companyEvents[2]))}>
 					mergerObjects(companyEvents[3], menuLinks[3])
-				</button>*/}
+				</button>
 			</div>
 		</section>
 	)
