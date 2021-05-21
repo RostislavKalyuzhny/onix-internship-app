@@ -1,25 +1,23 @@
 import PropTypes from 'prop-types';
 
+import Ref from './Ref.js';
+
 import logoBlack from '../img/projeco-logo-black.png';
 
-const Navigation = ({ links }) => {
+const Navigation = ({ links }) => (
+	<nav className="nav">
+		<div className="container">
+			<div className="navbar">
+				<img src={ logoBlack } alt="Konstruct" />
 
-	const createLinks = (links) => links.map( link => <li key={ link.name }><a href={ link.href }>{ link.name }</a></li>);
-
-	return (
-		<nav className="nav">
-			<div className="container">
-				<div className="navbar">
-					<img src={ logoBlack } alt="Konstruct" />
-
-					<ul className="menu">
-						{ createLinks(links) }
-					</ul>
-				</div>
+				<ul className="menu">
+					{ links.map( link => <Ref key={ link.name } link={ link } />) }
+				</ul>
 			</div>
-		</nav>
-	)
-}
+		</div>
+	</nav>
+)
+
 
 Navigation.propTypes = {
 	links: PropTypes.arrayOf(PropTypes.object),
