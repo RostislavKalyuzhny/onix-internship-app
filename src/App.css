@@ -27,6 +27,27 @@ h2 {
 	margin: 0 auto;
 }
 
+	/* CHANGE THEME */
+
+.theme-switch {
+	display: flex;
+	align-items: center;
+}
+
+.theme-switch input {
+	width: 18px;
+    height: 18px;
+}
+
+.night {
+	background-color: #fefefe;
+	filter: invert(100%);
+}
+
+.night img:not([src*=".svg"]), video {  
+   filter: invert(100%);
+}
+
 	/*	HEADER	*/
 
 .header {
@@ -280,9 +301,8 @@ tr:hover td {
 	/*	NEWSLATTER	*/
 
 .newslatter {
-	margin-top: 70px;
 	background-color: #171819;
-	padding: 30px 0 30px 0;
+	padding: 50px 0 30px 0;
 }
 
 .newslatter-form {
@@ -293,10 +313,11 @@ tr:hover td {
 .newslatter-form button {
 	width: 150px;
 	text-align: center;
-	padding-top: 4px;
+	padding-top: 5px;
 	background-color: #00A4E5;
 	color: #fff;
 	text-transform: uppercase;
+	border: 0;
 }
 
 .newslatter-form h2 {

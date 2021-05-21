@@ -4,9 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { ThemeSwitchProvider } from './components/context/ThemeSwitchContext.js';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeSwitchProvider>
+    	<App />
+    </ThemeSwitchProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

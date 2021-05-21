@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import Ref from './Ref.js';
+import ThemeSwitch from './ThemeSwitch.js';
 
 import logoBlack from '../img/projeco-logo-black.png';
 
@@ -13,6 +14,7 @@ const Navigation = ({ links }) => (
 				<ul className="menu">
 					{ links.map( link => <Ref key={ link.name } link={ link } />) }
 				</ul>
+				<ThemeSwitch />
 			</div>
 		</div>
 	</nav>

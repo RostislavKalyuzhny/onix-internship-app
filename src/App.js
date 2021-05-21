@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 import About from './components/About';
@@ -10,9 +12,15 @@ import bitmap from './img/icons/Bitmap.svg';
 import bitmap2 from './img/icons/Bitmap-2.svg';
 import bitmap3 from './img/icons/Bitmap-3.svg';
 
+import { ThemeSwitchContext } from './components/context/ThemeSwitchContext.js';
+
 import './App.css';
 
 function App() {
+
+	const value = useContext(ThemeSwitchContext);
+
+  	const classTheme = (value.theme === 'night') ? 'night' : 'light';
 
 	const menuLinks = [
 		{
@@ -150,20 +158,24 @@ function App() {
 		<div className="App">
 			<Header />
 
-			<Navigation links={ menuLinks }/>
+			<div className={ classTheme }>
+				<Navigation links={ menuLinks }/>
 
-			<About companyEvents={ companyEvents }/>
+				<About companyEvents={ companyEvents }/>
 
-			<Characters />
+				<Characters />
 
-			<Services services={ serviceBoxes }/>
+				<Services services={ serviceBoxes }/>
+			</div>
 
 			<Newslatter visible={ true }/>
 
 			<Footer
 				menuLinks={ menuLinks }
 				menuBlock1={ footerLinks1 }
-				menuBlock2={ footerLinks2 }/>
+				menuBlock2={ footerLinks2 }
+			/>
+
 		</div>
 	);
 }
