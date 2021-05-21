@@ -26,7 +26,7 @@ const CharactersViewItem = ({ character, index, dragStartHandler, dragOverHandle
 					<h3>{ name }</h3>
 					<p>Gender: { gender }</p>
 					<p>Species: { species }</p>
-					<p style = { (status === 'Alive') ? { color: 'green' } : { color: 'red' } }>Status: { status }</p>
+					<p className = { (status === 'Alive') ? "alive" : "dead" }>Status: { status }</p>
 				</div>
 		</div>
 	)

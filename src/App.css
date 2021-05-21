@@ -137,6 +137,10 @@ h2 {
 	margin-left: 20px;
 }
 
+.important {
+	font-weight: 900;
+}
+
 /* Event Table */
 
 table {
@@ -200,6 +204,14 @@ tr:hover td {
 
 .box-character img {
 	width: 100%;
+}
+
+.alive {
+	color: green;
+}
+
+.dead {
+	color: red;
 }
 
 	/*	SERVICES	*/

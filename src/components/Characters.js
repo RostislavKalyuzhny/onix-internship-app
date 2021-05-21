@@ -50,9 +50,9 @@ const Characters = () => {
 	}
 
 	if (error) {
-		return <div style={ { textAlign: 'center' } }> Ошибка: {error.message} ☢</div>;
+		return <div className="characters-tittle"> Ошибка: {error.message} ☢</div>;
 	} else if (!isLoaded) {
-		return <div style={ { textAlign: 'center' } }> Загрузка...🚀 </div>;
+		return <div className="characters-tittle"> Загрузка...🚀 </div>;
 	} else {
 		return (
 			<div className="container">

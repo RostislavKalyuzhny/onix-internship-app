@@ -66,7 +66,7 @@ const About = ({ companyEvents }) => {
 
 	const createLinesInTable = (lines) => {
 		return lines.map( line => 
-			<tr key={ line.id } style = { line.important ? { fontWeight: 900 } : null }>
+			<tr key={ line.id } className = { line.important ? "important" : null }>
 				<td>{ `${line.date.day}/${line.date.month}/${line.date.year}` }</td>
 				<td>{ line.event }</td>
 			</tr>);
