@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import './i18n';
+
 import { ThemeSwitchProvider } from './components/context/ThemeSwitchContext.js';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ThemeSwitchProvider>
-    	<App />
-    </ThemeSwitchProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+	  	<Suspense fallback={<div>Loading...</div>}>
+		    <ThemeSwitchProvider>
+		    	<App />
+		    </ThemeSwitchProvider>
+		</Suspense>
+  	</React.StrictMode>,
+  	document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
