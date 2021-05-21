@@ -1,18 +1,8 @@
 import PropTypes from 'prop-types';
 
-const Services = ({ services }) => {
+import Box from './Box.js';
 
-	const createBoxes = (boxes) => {
-		return boxes.map( (box, index) => {
-			return (
-				<div key={index} className="box">
-					<img src={ box.img } alt={ box.img } />
-					<h3>{ box.title }</h3>
-					<p>{ box.text }</p>
-				</div>
-			)
-		})
-	}
+const Services = ({ services }) => {
 
 	return (
 		<section id="services" className="services">
@@ -26,7 +16,7 @@ const Services = ({ services }) => {
 				</div>
 
 				<div className="serv-boxes">
-					{ createBoxes(services) }
+					{ services.map( box => <Box key={ box.img } box={ box } />) }
 				</div>            
 			</div>
 		</section>
