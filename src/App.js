@@ -13,7 +13,7 @@ import bitmap2 from './img/icons/Bitmap-2.svg';
 import bitmap3 from './img/icons/Bitmap-3.svg';
 
 import { ThemeSwitchContext } from './components/context/ThemeSwitchContext.js';
-
+	
 import './App.css';
 
 function App() {
