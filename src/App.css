@@ -32,11 +32,12 @@ h2 {
 .theme-switch {
 	display: flex;
 	align-items: center;
+	margin: 0 10px 0 10px;
 }
 
 .theme-switch input {
 	width: 18px;
-    height: 18px;
+   height: 18px;
 }
 
 .night {

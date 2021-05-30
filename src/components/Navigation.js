@@ -1,18 +1,13 @@
 import PropTypes from 'prop-types';
-import { useTranslation } from "react-i18next";
 
 import logoBlack from '../img/projeco-logo-black.png';
 
 import Ref from './Ref.js';
 import ThemeSwitch from './ThemeSwitch.js';
+import LanguageSwitch from './LanguageSwitch/LanguageSwitch.js';
 
 
 const Navigation = ({ links }) => {
-	const { i18n } = useTranslation();
-
-	const changeLanguage = (language) => {
-    	i18n.changeLanguage(language);
-  	};
 
 	return (
 		<nav className="nav">
@@ -23,9 +18,10 @@ const Navigation = ({ links }) => {
 					<ul className="menu">
 						{ links.map( link => <Ref key={ link.name } link={ link } />) }
 					</ul>
+
 					<ThemeSwitch />
-					<button onClick={() => changeLanguage("en")}>EN</button>
-      				<button onClick={() => changeLanguage("ru")}>RU</button>
+
+					<LanguageSwitch/>
 				</div>
 			</div>
 		</nav>
