@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from "react-i18next";
 
 import CharactersViewItem from './CharactersViewItem.jsx';
 
 const Characters = () => {
+	const { t } = useTranslation('characters');
 
 	const [error, setError] = useState(null);
 	const [isLoaded, setIsLoaded] = useState(false);
@@ -50,13 +52,13 @@ const Characters = () => {
 	}
 
 	if (error) {
-		return <div className="characters-tittle"> Ошибка: {error.message} ☢</div>;
+		return <div className="characters-tittle">{ t('error') } {error.message}☢</div>;
 	} else if (!isLoaded) {
-		return <div className="characters-tittle"> Загрузка...🚀 </div>;
+		return <div className="characters-tittle">{ t('load') }🚀</div>;
 	} else {
 		return (
 			<div className="container">
-				<h2 className="characters-tittle">Our employees</h2>
+				<h2 className="characters-tittle">{ t('head') }</h2>
 				<div className="characters">
 					{ characters.map( (character, index) => 
 						<CharactersViewItem 

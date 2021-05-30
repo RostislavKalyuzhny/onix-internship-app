@@ -1,19 +1,17 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from "react-i18next";
 
 import plan from '../img/plan.jpg';
 import manage from '../img/manage.jpg';
 import deliver from '../img/deliver.jpg';
 
 const About = ({ companyEvents }) => {
+	const { t } = useTranslation('about');
 
 	const testButtonStyle = {
 		margin: 10 + 'px', 
 		padding: 10 + 'px',
 	}
-
-	const ourStoryText = `BUILDING QUALITY HOMES AND COMMERCIAL STRUCTURES IS INCREDIBLY COMPLEX. WE HAVE A PROVEN TRACK RECORD 
-	WITH AN EXPANSIVE PORTFOLIO OF PROJECTS ACROSS A letIETY OF PRODUCT TYPES INCLUDING CUSTOM AND SPECULATIVE HOMES, 
-	HOSPITALITY, COMMERCIAL, RETAIL, AND TENANT IMPROVEMENTS.`;
 
 	let completedProjectsValue = 67;
 
@@ -75,13 +73,12 @@ const About = ({ companyEvents }) => {
 	return (
 		<section id="about" className="about">
 			<div className="container">
-				<h2>Our Story</h2>
+				<h2>{ t('head')} </h2>
 				<div className="description">
 					<div className="desc-text">
-						<h3>Founded in 2008 by John Mathew Smith, <span>Konstruct</span> has become the number one construction 
-						management firm</h3>
-						<p>{ ourStoryText }</p>
-						<p>Completed projects: { completedProjectsValue }</p>
+						<h3>{ t('companyDesc') }</h3>
+						<p>{ t('ourStory') }</p>
+						<p>{ t('completedProjects') } { completedProjectsValue }</p>
 					</div>
 
 					<div className="desc-photo">
@@ -93,7 +90,7 @@ const About = ({ companyEvents }) => {
 
 				<table>
 					<thead>
-						<tr><th>Year</th><th>Event</th></tr>
+						<tr><th>{ t('year') }</th><th>{ t('event') }</th></tr>
 					</thead>  
 
 					<tbody>

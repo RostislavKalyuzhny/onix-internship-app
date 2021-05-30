@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useTranslation } from "react-i18next";
 
 import Header from './components/Header';
 import Navigation from './components/Navigation';
@@ -17,6 +18,7 @@ import { ThemeSwitchContext } from './components/context/ThemeSwitchContext.js';
 import './App.css';
 
 function App() {
+	const { t } = useTranslation(['companyEvents', 'nav', 'services']);
 
 	const value = useContext(ThemeSwitchContext);
 
@@ -24,47 +26,45 @@ function App() {
 
 	const menuLinks = [
 		{
-			name: 'Home',
+			name: t('nav:home'),
 			href: '#'
 		},
 		{
-			name: 'About',
+			name: t('nav:about'),
 			href: '#about'
 		},
 		{
-			name: 'Services',
+			name: t('nav:services'),
 			href: '#services'
 		},
 		{
-			name: 'Contacts',
+			name: t('nav:contacts'),
 			href: '#contacts'
 		},
 	];
 
 	const serviceBoxes = [
 		{
-			img : bitmap,
-			title : 'PROJECT AND CONSTRUCTION MANAGEMENT',
-			text: `Construction is art and craft, but efficiently managing the project is a science. We hold ourselves to the highest 
-			standard to deliver your project on time and at a level of quality that precedes our reputation.`
+			img: bitmap,
+			title: t('services:project.title'),
+			text: t('services:project.text'),
 		},
 		{
 			img : bitmap2,
-			title : 'STRUCTURE AUDIT AND MAINTENANCE',
-			text: `Procore is a comprehensive construction software suite offering our clients on demand access to valuable 
-			information regarding scheduling, milestones, budgets, change orders, finish selections, and more. `
+			title: t('services:structure.title'),
+			text: t('services:structure.text'),
 		},
 		{
 			img : bitmap3,
-			title : 'FACTORY CONSTRUCTION AND MODELING',
-			text: `Your finished product will reflect the resources, time, and passion we bring to every project.`
+			title: t('services:factory.title'),
+			text: t('services:factory.text'),
 		},
 	];
 
 	const companyEvents = [
 		{ 
 			id: 3,
-			event: 'First foreign project completed',
+			event: t(3),
 			important: false,
 			date: {
 				year: 2012,
@@ -74,7 +74,7 @@ function App() {
 		},
 		{ 
 			id: 4,
-			event: 'Foundation of the company',
+			event: t(4),
 			important: true,
 			date: {
 				year: 2008,
@@ -84,7 +84,7 @@ function App() {
 		},
 		{ 
 			id: 5,
-			event: 'Attraction of additional investments in connection with the expansion of the company',
+			event: t(5),
 			important: false,
 			date: {
 				year: 2010,
@@ -94,7 +94,7 @@ function App() {
 		},
 		{ 
 			id: 6,
-			event: 'The number of employees in the company reaches 300 people',
+			event: t(6),
 			important: false,
 			date: {
 				year: 2014,
@@ -104,7 +104,7 @@ function App() {
 		},
 		{ 
 			id: 7,
-			event: 'Opening offices in other countries: Denmark, France, Germany',
+			event: t(7),
 			important: true,
 			date: {
 				year: 2020,
@@ -114,7 +114,7 @@ function App() {
 		},
 		{ 
 			id: 8,
-			event: 'Creation of an additional office. Anniversary in 50 completed projects and ten years of the company',
+			event: t(8),
 			important: false,
 			date: {
 				year: 2018,
@@ -126,30 +126,30 @@ function App() {
 
 	const footerLinks1 = [
 		{
-			name: 'Faq',
+			name: t('nav:faq'),
 			href: '#'
 		},
 		{
-			name: 'Terms',
+			name: t('nav:terms'),
 			href: '#'
 		},
 		{
-			name: 'Kareers',
+			name: t('nav:kareers'),
 			href: '#'
 		},
 	];
 
 	const footerLinks2 = [
 		{
-			name: 'blog',
+			name: t('nav:blog'),
 			href: '#'
 		},
 		{
-			name: 'Partners',
+			name: t('nav:partners'),
 			href: '#'
 		},
 		{
-			name: 'News',
+			name: t('nav:news'),
 			href: '#'
 		},
 	];

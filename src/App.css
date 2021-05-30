@@ -360,6 +360,11 @@ tr:hover td {
 	flex-basis: 35%;
 }
 
+.company p {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
 .company img {
 	margin-bottom:15px;
 }

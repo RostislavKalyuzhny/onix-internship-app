@@ -1,20 +1,19 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import './i18n';
+import './i18n/i18n';
 
 import { ThemeSwitchProvider } from './components/context/ThemeSwitchContext.js';
 
 ReactDOM.render(
-	<React.StrictMode>
-	  	<Suspense fallback={<div>Loading...</div>}>
-		    <ThemeSwitchProvider>
-		    	<App />
-		    </ThemeSwitchProvider>
-		</Suspense>
+	<React.StrictMode> 	
+	    <ThemeSwitchProvider>
+	        <App/>
+	    </ThemeSwitchProvider>
   	</React.StrictMode>,
   	document.getElementById('root')
 );

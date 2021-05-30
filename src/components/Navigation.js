@@ -8,7 +8,7 @@ import ThemeSwitch from './ThemeSwitch.js';
 
 
 const Navigation = ({ links }) => {
-	const { t, i18n } = useTranslation();
+	const { i18n } = useTranslation();
 
 	const changeLanguage = (language) => {
     	i18n.changeLanguage(language);
@@ -26,7 +26,6 @@ const Navigation = ({ links }) => {
 					<ThemeSwitch />
 					<button onClick={() => changeLanguage("en")}>EN</button>
       				<button onClick={() => changeLanguage("ru")}>RU</button>
-      				<h3>{t("title")}</h3>
 				</div>
 			</div>
 		</nav>
